@@ -15,6 +15,10 @@ run/main_scene="res://Assets/Scenes/Areas/area_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://Assets/Scripts/game_manager.gd"
+
 [input]
 
 jump={
@@ -43,6 +47,7 @@ move_down={
 2d_physics/layer_1="player"
 2d_physics/layer_9="ground"
 2d_physics/layer_10="one_way_ground"
+2d_physics/layer_17="transitions"
 
 [rendering]
 
