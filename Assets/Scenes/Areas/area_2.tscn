@@ -9,3 +9,12 @@ layer_1/tile_data = PackedInt32Array(327684, 65536, 6, 262148, 65536, 5, 196612,
 
 [node name="AreaExit" parent="." index="3"]
 position = Vector2(408, -20)
+
+[node name="EnergyCell2" parent="EnergyCells" index="1"]
+position = Vector2(127, -46)
+
+[node name="EnergyCell3" parent="EnergyCells" index="2"]
+position = Vector2(194, -19)
+
+[node name="EnergyCell4" parent="EnergyCells" index="3"]
+position = Vector2(304, -17)

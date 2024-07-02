@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b77gyw0pb7g38"
-path="res://.godot/imported/portal.png-90664bc9fe17788cb41bd2481cacce24.ctex"
+uid="uid://bmwcakyripy3v"
+path="res://.godot/imported/energy_cell.png-49b1550e7ad59049450360646dcdc815.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/portal.png"
-dest_files=["res://.godot/imported/portal.png-90664bc9fe17788cb41bd2481cacce24.ctex"]
+source_file="res://Assets/Sprites/energy_cell.png"
+dest_files=["res://.godot/imported/energy_cell.png-49b1550e7ad59049450360646dcdc815.ctex"]
 
 [params]
 
