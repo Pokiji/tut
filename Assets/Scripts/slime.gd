@@ -7,7 +7,7 @@ var player: Node2D = null
 
 func _ready():
 	# Get reference to player (make sure the Player node is named "Player" in the scene tree)
-	player = get_tree().root.get_node("World/Player")  # adjust path to your player
+	player = get_tree().root.get_node("Scenes/Player")  # adjust path to your player
 
 func _physics_process(delta):
 	if player:
