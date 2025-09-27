@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddmt8c7maqsqr"]
+[gd_scene load_steps=12 format=3 uid="uid://ddmt8c7maqsqr"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/player_controller.gd" id="1_8v6ty"]
+[ext_resource type="Script" uid="uid://dtcurwodfggwc" path="res://Assets/Scripts/player_controller.gd" id="1_8v6ty"]
 [ext_resource type="Texture2D" uid="uid://d2twas6sbh6jg" path="res://Assets/Sprites/player.png" id="1_eicmg"]
-[ext_resource type="Script" path="res://Assets/Scripts/player_animator.gd" id="2_1cegp"]
+[ext_resource type="Script" uid="uid://q2ia7sgd7jqh" path="res://Assets/Scripts/player_animator.gd" id="2_1cegp"]
+[ext_resource type="Texture2D" uid="uid://u86xnq0u6j6t" path="res://Assets/Sprites/sword_black_red_1.png" id="4_t1xgp"]
 
 [sub_resource type="Animation" id="Animation_6f3ly"]
 length = 0.001
@@ -86,11 +87,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uq15r"]
 _data = {
-"RESET": SubResource("Animation_6f3ly"),
-"fall": SubResource("Animation_gw21u"),
-"idle": SubResource("Animation_32pi5"),
-"jump": SubResource("Animation_jwch5"),
-"move": SubResource("Animation_gt1i5")
+&"RESET": SubResource("Animation_6f3ly"),
+&"fall": SubResource("Animation_gw21u"),
+&"idle": SubResource("Animation_32pi5"),
+&"jump": SubResource("Animation_jwch5"),
+&"move": SubResource("Animation_gt1i5")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4c802"]
@@ -118,7 +119,7 @@ sprite = NodePath("Sprite2D")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimator"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_uq15r")
+&"": SubResource("AnimationLibrary_uq15r")
 }
 autoplay = "idle"
 speed_scale = 1.5
@@ -129,6 +130,13 @@ texture = ExtResource("1_eicmg")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
+[node name="sword" type="Sprite2D" parent="PlayerAnimator/Sprite2D"]
+position = Vector2(7.9999995, 1.9999999)
+rotation = 3.1415927
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_t1xgp")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_4c802")
