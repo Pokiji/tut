@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="Tutorial-Platformer"
+<<<<<<< Updated upstream
 run/main_scene="uid://cimenfkh3p2bi"
+=======
+run/main_scene="res://Assets/Scenes/Areas/area_1.tscn"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -5,6 +5,8 @@ var area_path = "res://Assets/Scenes/Areas/"
 
 var energy_cells = 0
 
+var health = 100
+
 func _ready():
 	reset_energy_cells()
 
@@ -17,6 +19,12 @@ func next_level():
 func set_up_area():
 	reset_energy_cells()
 
+<<<<<<< Updated upstream
+=======
+func remove_health(damage):
+	health -= damage
+	print(health)
+>>>>>>> Stashed changes
 
 func add_energy_cell():
 	energy_cells += 1

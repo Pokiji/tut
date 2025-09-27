@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://dtcurwodfggwc" path="res://Assets/Scripts/player_controller.gd" id="1_8v6ty"]
 [ext_resource type="Texture2D" uid="uid://d2twas6sbh6jg" path="res://Assets/Sprites/player.png" id="1_eicmg"]
 [ext_resource type="Script" uid="uid://q2ia7sgd7jqh" path="res://Assets/Scripts/player_animator.gd" id="2_1cegp"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://u86xnq0u6j6t" path="res://Assets/Sprites/sword_black_red_1.png" id="4_t1xgp"]
+=======
+>>>>>>> Stashed changes
 
 [sub_resource type="Animation" id="Animation_6f3ly"]
 length = 0.001
@@ -92,6 +95,7 @@ _data = {
 &"idle": SubResource("Animation_32pi5"),
 &"jump": SubResource("Animation_jwch5"),
 &"move": SubResource("Animation_gt1i5")
+<<<<<<< Updated upstream
 }
 
 [sub_resource type="Animation" id="Animation_t1xgp"]
@@ -221,6 +225,8 @@ _data = {
 &"RESET": SubResource("Animation_23lac"),
 &"slash": SubResource("Animation_t1xgp"),
 &"sword_return": SubResource("Animation_w3t24")
+=======
+>>>>>>> Stashed changes
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4c802"]
