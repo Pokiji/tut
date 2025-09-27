@@ -1,24 +1,25 @@
 extends CharacterBody2D
 
-@export var speed: float = 100.0
-@export var chase_range: float = 200.0   # Distance at which enemy starts chasing
+@export var player: Node2D
+@export var speed: float = 60.0
+@export var patrol_speed: float = 40.0
+@export var chase_range: float = 200.0
+@export var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var player: Node2D = null
-
-func _ready():
-	# Get reference to player (make sure the Player node is named "Player" in the scene tree)
-	player = get_tree().root.get_node("Scenes/Player")  # adjust path to your player
+var direction: int = 1
 
 func _physics_process(delta):
-	if player:
-		var distance_to_player = position.distance_to(player.position)
-		
-		if distance_to_player <= chase_range:
-			# Move towards player
-			var direction = (player.position - position).normalized()
-			velocity = direction * speed
-		else:
-			# Stop moving when out of range
-			velocity = Vector2.ZERO
+	if not is_on_floor():
+		velocity.y += gravity * delta
 
-		move_and_slide()
+	if player and global_position.distance_to(player.global_position) <= chase_range:
+		direction = sign(player.global_position.x - global_position.x)
+		velocity.x = direction * speed
+	else:
+		velocity.x = direction * patrol_speed
+
+		if is_on_wall() or not $RayCast2D.is_colliding():
+			direction *= -1
+			$RayCast2D.position.x = abs($RayCast2D.position.x) * direction
+
+	move_and_slide()
