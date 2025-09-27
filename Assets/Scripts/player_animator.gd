@@ -3,6 +3,7 @@ extends Node2D
 @export var player_controller : PlayerController
 @export var animation_player : AnimationPlayer
 @export var sprite : Sprite2D
+@onready var sword = $Sprite2D/sword
 
 func _process(delta):
 	# flips the character sprite

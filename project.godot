@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Tutorial-Platformer"
-run/main_scene="res://Assets/Scenes/Areas/area_1.tscn"
+run/main_scene="uid://cimenfkh3p2bi"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<Updatedupstreamrun/main_scene="uid://cimenfkh3p2bi"

@@ -2,7 +2,7 @@ extends CanvasLayer
 class_name HUD
 
 @export var player: PlayerController
-@onready var health_bar: HealthBar 
+@onready var health_bar: ProgressBar 
 
 func _ready() -> void:
 	if player:
