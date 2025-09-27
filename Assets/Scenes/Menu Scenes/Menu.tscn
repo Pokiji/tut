@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cimenfkh3p2bi"]
+[gd_scene load_steps=5 format=3 uid="uid://cimenfkh3p2bi"]
 
-[ext_resource type="Script" uid="uid://dfpoc7i0gun7p" path="res://Assets/Scripts/menu_script.gd" id="1_bd63t"]
-[ext_resource type="FontFile" uid="uid://d0aa0n6jevuyc" path="res://Assets/font/Jacquard12-Regular.ttf" id="2_nkcy3"]
-[ext_resource type="Texture2D" uid="uid://cclc45ds2oxjx" path="res://icon.svg" id="3_q7fko"]
+[ext_resource type="Script" uid="uid://dia02r8jvi3pi" path="res://Assets/Scripts/menu_script.gd" id="1_bd63t"]
+[ext_resource type="FontFile" uid="uid://d0aa0n6jevuyc" path="res://Assets/Fonts/Jacquard12-Regular.ttf" id="2_nkcy3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pbfds"]
 
@@ -92,8 +91,9 @@ alignment = 0
 position = Vector2(-5, -1)
 
 [node name="Sprite2D" type="Sprite2D" parent="MenuBackground/ParallaxLayer"]
-position = Vector2(69, 58)
-texture = ExtResource("3_q7fko")
+z_index = -5
+position = Vector2(696, 416)
+scale = Vector2(3.8233335, 3.8452382)
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]

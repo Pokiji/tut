@@ -5,9 +5,10 @@ signal health_changed(current: int, max: int)
 
 @export var speed: float = 10.0
 @export var jump_power: float = 10.0
-
+@export var damage_multiplier: float = 1.0;
 @export var max_health: int = 100
 var current_health: int = max_health
+
 
 var speed_multiplier: float = 30.0
 var jump_multiplier: float = -30.0
@@ -36,6 +37,13 @@ func _input(event: InputEvent) -> void:
 		set_collision_mask_value(10, false)
 	else:
 		set_collision_mask_value(10, true)
+	if event.is_action("sacrifice"):
+		sacrifice(current_health);
+
+func sacrifice(current_health: int):
+	current_health/4
+	damage_multiplier = damage_multiplier*1.5
+	
 
 func _physics_process(delta: float) -> void:
 	# Gravity
