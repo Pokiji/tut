@@ -1,9 +1,14 @@
 extends CharacterBody2D
+
 class_name PlayerController
+
+signal healthChanged
 
 @export var speed = 10.0
 @export var jump_power = 10.0
 
+@export var maxHealth  = 100
+@onready var currentHealth: int = maxHealth
 var speed_multiplier = 30.0
 var jump_multiplier = -30.0
 var direction = 0
