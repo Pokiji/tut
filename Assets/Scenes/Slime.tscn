@@ -133,6 +133,3 @@ region_rect = Rect2(0, 0, 32, 32)
 position = Vector2(1, 0.9999999)
 scale = Vector2(1.4978071, 0.7238767)
 shape = SubResource("CapsuleShape2D_1hyad")
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(-22, 8)

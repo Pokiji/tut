@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Slime
 
 @export var player: Node2D
 @export var speed: float = 60.0
@@ -6,7 +7,7 @@ extends CharacterBody2D
 @export var chase_range: float = 200.0
 @export var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var direction: int = 1
+var direction: float = 1
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -17,9 +18,5 @@ func _physics_process(delta):
 		velocity.x = direction * speed
 	else:
 		velocity.x = direction * patrol_speed
-
-		if is_on_wall() or not $RayCast2D.is_colliding():
-			direction *= -1
-			$RayCast2D.position.x = abs($RayCast2D.position.x) * direction
 
 	move_and_slide()
