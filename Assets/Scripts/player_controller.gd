@@ -1,26 +1,34 @@
 extends CharacterBody2D
-
 class_name PlayerController
 
-signal healthChanged
+signal health_changed(current: int, max: int)
 
-@export var speed = 10.0
-@export var jump_power = 10.0
+@export var speed: float = 10.0
+@export var jump_power: float = 10.0
 
-@export var maxHealth  = 100
-@onready var currentHealth: int = maxHealth
-var speed_multiplier = 30.0
-var jump_multiplier = -30.0
-var direction = 0
+@export var max_health: int = 100
+var current_health: int = max_health
 
-#const SPEED = 300.0
-#const JUMP_VELOCITY = -400.0
+var speed_multiplier: float = 30.0
+var jump_multiplier: float = -30.0
+var direction: float = 0.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func _input(event):
-	# Handle jump.
+func _ready() -> void:
+	current_health = max_health
+	emit_signal("health_changed", current_health, max_health) # initialize health bar
+
+func take_damage(amount: int) -> void:
+	current_health = max(current_health - amount, 0)
+	emit_signal("health_changed", current_health, max_health)
+
+func heal(amount: int) -> void:
+	current_health = min(current_health + amount, max_health)
+	emit_signal("health_changed", current_health, max_health)
+
+func _input(event: InputEvent) -> void:
+	# Handle jump
 	if event.is_action_pressed("jump") and is_on_floor():
 		velocity.y = jump_power * jump_multiplier
 	# Handle jump down
@@ -29,17 +37,14 @@ func _input(event):
 	else:
 		set_collision_mask_value(10, true)
 
-func _physics_process(delta):
-	# Add the gravity.
+func _physics_process(delta: float) -> void:
+	# Gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	# Movement
 	direction = Input.get_axis("move_left", "move_right")
-	if direction:
+	if direction != 0:
 		velocity.x = direction * speed * speed_multiplier
 	else:           
 		velocity.x = move_toward(velocity.x, 0, speed * speed_multiplier)
