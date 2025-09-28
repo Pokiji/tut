@@ -29,14 +29,16 @@ func _physics_process(delta):
 	else:
 		velocity.y = 0
 
-	# Determine behavior
-	var distance_to_player = player.global_position.distance_to(global_position) if player else 9999
+	# Determine distance to player safely
+	var distance_to_player = 9999
+	if player:
+		distance_to_player = player.global_position.distance_to(global_position)
 
-	if player and distance_to_player <= attack_range:
+	# Behavior
+	if player and distance_to_player <= attack_range and attack_timer <= 0:
 		# Stop and attack
 		velocity.x = 0
-		if attack_timer <= 0:
-			attack()
+		attack()
 	elif player and distance_to_player <= chase_range:
 		# Chase player
 		direction = sign(player.global_position.x - global_position.x)
@@ -44,10 +46,16 @@ func _physics_process(delta):
 	else:
 		# Patrol
 		velocity.x = direction * patrol_speed
-		if is_on_wall() or (has_node("LedgeRay") and not $LedgeRay.is_colliding()):
+
+		# Flip if hitting wall
+		if is_on_wall():
 			direction *= -1
-			if has_node("LedgeRay"):
-				$LedgeRay.position.x = abs($LedgeRay.position.x) * direction
+			velocity.x = direction * patrol_speed  # push away slightly
+
+		# Flip if reaching ledge
+		elif has_node("LedgeRay") and not $LedgeRay.is_colliding():
+			direction *= -1
+			$LedgeRay.position.x = abs($LedgeRay.position.x) * direction
 
 	# Move slime
 	move_and_slide()
