@@ -9,6 +9,9 @@ func _process(delta):
 		sprite.flip_h = false
 	elif Slimehehe.direction == 1:
 		sprite.flip_h = true
-
+	
+	if Slimehehe.attack():
+		animation_player.play("attack")
+		
 	if animation_player.current_animation != "move":
 		animation_player.play("move")
