@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cimenfkh3p2bi"]
 
-[ext_resource type="Script" uid="uid://dia02r8jvi3pi" path="res://Assets/Scripts/menu_script.gd" id="1_bd63t"]
+[ext_resource type="Script" path="res://Assets/Scripts/menu_script.gd" id="1_bd63t"]
 [ext_resource type="FontFile" uid="uid://d0aa0n6jevuyc" path="res://Assets/Fonts/Jacquard12-Regular.ttf" id="2_nkcy3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pbfds"]
