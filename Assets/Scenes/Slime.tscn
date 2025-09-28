@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7l7rkgdg7rwf"]
+[gd_scene load_steps=9 format=3 uid="uid://c7l7rkgdg7rwf"]
 
 [ext_resource type="Texture2D" uid="uid://bxas0x5scmuxx" path="res://Assets/Sprites/slime-Sheet.png" id="1_kk5t5"]
 [ext_resource type="Script" uid="uid://bmpcfyu2u25t5" path="res://Assets/Scripts/slime.gd" id="1_pqwf4"]
+[ext_resource type="Script" uid="uid://ou0sis68i6ql" path="res://Assets/Scripts/slime_animator.gd" id="2_hantd"]
 
 [sub_resource type="Animation" id="Animation_kk5t5"]
 length = 0.001
@@ -116,7 +117,11 @@ height = 19.340311
 [node name="slime" type="CharacterBody2D"]
 script = ExtResource("1_pqwf4")
 
-[node name="SlimeAnimator" type="Node2D" parent="."]
+[node name="SlimeAnimator" type="Node2D" parent="." node_paths=PackedStringArray("Slimehehe", "animation_player", "sprite")]
+script = ExtResource("2_hantd")
+Slimehehe = NodePath("..")
+animation_player = NodePath("AnimationPlayer")
+sprite = NodePath("Sprite2D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SlimeAnimator"]
 libraries = {

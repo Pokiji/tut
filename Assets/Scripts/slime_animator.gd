@@ -5,13 +5,10 @@ extends Node2D
 @export var sprite : Sprite2D
 
 func _process(delta):
-	# flips the character sprite
-	if Slimehehe.direction == 1:
+	if Slimehehe.direction == -1:
 		sprite.flip_h = false
-	elif Slimehehe.direction== -1:
+	elif Slimehehe.direction == 1:
 		sprite.flip_h = true
-	# plays the movement animation
-	if abs(Slimehehe.velocity.x) > 0.0:
-		animation_player.play("move")
-	else:
+
+	if animation_player.current_animation != "move":
 		animation_player.play("move")
