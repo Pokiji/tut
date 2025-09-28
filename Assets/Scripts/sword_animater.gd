@@ -3,23 +3,25 @@ class_name SwordAnimator
 
 @export var sprite: Sprite2D
 @export var animation_player: AnimationPlayer
+#@export var sword_player: .x
 
 func _ready():
+	print("heys")
+
 	# Connect to parent swordSignal for flipping
 	var parent = get_parent()
 	if parent.has_signal("swordSignal"):
-		print("heys")
 		parent.swordSignal.connect(flip)
 
-	# Match parent sprite flip at start
-	flip(parent.sprite.flip_h)
+	# Match parent sprite fl"player_controller"ip at start
+	flip(parent.flip_h)
 
 	# Optional: Connect animation finished to reset logic
 	if animation_player:
 		animation_player.animation_finished.connect(_on_animation_finished)
 
 func flip(flip_h: bool):
-	sprite.flip_h = flip_h
+	parent.flip_h = flip_h
 
 func attack():
 	if animation_player.has_animation("slash"):

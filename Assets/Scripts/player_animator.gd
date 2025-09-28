@@ -3,8 +3,10 @@ class_name PlayerAnimator
 
 @export var player_controller: PlayerController
 @export var animation_player: AnimationPlayer
+@export var animation_player2: AnimationPlayer
 @export var sprite: Sprite2D
-@onready var sword = $Sprite2D/Sword   # adjust if your sword path is different
+@export var sprite2: Sprite2D
+@onready var sword = $Sprite2D/sword   # adjust if your sword path is different
 
 func _ready():
 	# Connect attack signal from PlayerController
@@ -19,9 +21,13 @@ func _process(delta):
 	# Flip character sprite
 	if player_controller.direction == 1:
 		sprite.flip_h = false
+		sprite2.flip_h = false
+		sprite2.position = Vector2(8,1)
+		
 	elif player_controller.direction == -1:
 		sprite.flip_h = true
-
+		sprite2.flip_h = true
+		sprite2.position = Vector2(-8,1)
 	# Play movement / idle animations
 	if abs(player_controller.velocity.x) > 0.0:
 		animation_player.play("move")
@@ -35,6 +41,6 @@ func _process(delta):
 		animation_player.play("fall")
 
 func _on_player_attacked():
-	animation_player.play("attack")
+	animation_player2.play("slash")
 	if sword:
 		sword.attack()   # trigger sword slash animation

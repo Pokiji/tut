@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxgd57qor82jm"]
+[gd_scene load_steps=13 format=3 uid="uid://dxgd57qor82jm"]
 
 [ext_resource type="PackedScene" uid="uid://cnxr6ivqwheg1" path="res://Assets/Scenes/player.tscn" id="2_8mngg"]
 [ext_resource type="PackedScene" uid="uid://0nyxj6rb08sc" path="res://Assets/Scenes/Area Functionality/area_exit.tscn" id="2_b57bv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cckbn71w1dcwt" path="res://Assets/Sprites/healthbarUnder.png" id="6_u5kvw"]
 [ext_resource type="Texture2D" uid="uid://dgbhnay7p6jy" path="res://Assets/Sprites/healthbarProgress.png" id="7_tmiqi"]
 [ext_resource type="Script" uid="uid://dtjm82klx0nxd" path="res://Assets/Scripts/health.gd" id="8_licb0"]
+[ext_resource type="PackedScene" path="res://Assets/Scenes/Slime.tscn" id="8_u5kvw"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e8ha6"]
 load_path = "res://.godot/imported/tiles_1.png-caae9e096ed63b671bb0775098168e12.ctex"
@@ -395,3 +396,6 @@ texture_under = ExtResource("6_u5kvw")
 texture_progress = ExtResource("7_tmiqi")
 script = ExtResource("8_licb0")
 player = NodePath("../../../Player")
+
+[node name="slime" parent="." instance=ExtResource("8_u5kvw")]
+position = Vector2(-27, -7)

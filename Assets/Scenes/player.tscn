@@ -237,11 +237,13 @@ zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 
-[node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "animation_player", "sprite")]
+[node name="PlayerAnimator" type="Node2D" parent="." node_paths=PackedStringArray("player_controller", "animation_player", "animation_player2", "sprite", "sprite2")]
 script = ExtResource("2_1cegp")
 player_controller = NodePath("..")
 animation_player = NodePath("AnimationPlayer")
+animation_player2 = NodePath("Sprite2D/sword/attack")
 sprite = NodePath("Sprite2D")
+sprite2 = NodePath("Sprite2D/sword")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimator"]
 root_node = NodePath("../..")
