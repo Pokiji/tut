@@ -230,8 +230,6 @@ height = 14.0
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 768
 script = ExtResource("1_8v6ty")
-speed = 4.0
-jump_power = 8.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -15)
@@ -265,12 +263,11 @@ rotation = 3.1415927
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_t1xgp")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimator/Sprite2D/sword"]
+[node name="attack" type="AnimationPlayer" parent="PlayerAnimator/Sprite2D/sword"]
 libraries = {
 &"": SubResource("AnimationLibrary_w3t24")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_4c802")
