@@ -10,18 +10,14 @@ func _ready():
 
 	# Connect to parent swordSignal for flipping
 	var parent = get_parent()
-	if parent.has_signal("swordSignal"):
-		parent.swordSignal.connect(flip)
 
 	# Match parent sprite fl"player_controller"ip at start
-	flip(parent.flip_h)
 
 	# Optional: Connect animation finished to reset logic
 	if animation_player:
 		animation_player.animation_finished.connect(_on_animation_finished)
 
-func flip(flip_h: bool):
-	parent.flip_h = flip_h
+
 
 func attack():
 	if animation_player.has_animation("slash"):

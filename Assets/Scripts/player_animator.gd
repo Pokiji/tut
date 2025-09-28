@@ -6,7 +6,7 @@ class_name PlayerAnimator
 @export var animation_player2: AnimationPlayer
 @export var sprite: Sprite2D
 @export var sprite2: Sprite2D
-@onready var sword = $Sprite2D/sword   # adjust if your sword path is different
+   # adjust if your sword path is different
 
 func _ready():
 	# Connect attack signal from PlayerController
@@ -42,5 +42,6 @@ func _process(delta):
 
 func _on_player_attacked():
 	animation_player2.play("slash")
-	if sword:
-		sword.attack()   # trigger sword slash animation
+	animation_player2.play("sword_return`")
+	if player_controller:
+		player_controller.attack()   # trigger sword slash animation
